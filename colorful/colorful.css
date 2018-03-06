@@ -1,0 +1,54 @@
+body{
+    background:rgb(165, 113, 207);
+}
+.contaier-text{
+    margin:auto;
+    width:500px;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    margin-top:130px;
+}
+.button{
+    float:left;
+    padding: 0px;
+    padding-top: 8px;
+    text-align: center;
+    font-size: 1.2em;
+   
+    height: 25px;
+    width: 30px;
+    background: rgb(165, 113, 207);
+    color:white;
+    
+    border-radius: 5px;
+    text-decoration: none;
+    padding:8px;
+}
+.left-button{
+    margin-right:10px;
+}
+.rigth-button{
+    width:auto;
+    font-size:16px;
+    padding:8px 18px 6px 18px;
+}
+fa fa-quote-left:before{
+   
+        content: "\f10d";
+}
+
+.quote-author{
+    text-align: right;
+    padding: 20px;
+}
+.quote-content{
+    text-align: center;
+    font-size: 1.65em;
+    font-family:'Raleway', sans-serif;
+    line-height: 1.5;
+}
+.quote-content > i{
+    margin-right: 5px;
+}
+a{cursor: pointer}
