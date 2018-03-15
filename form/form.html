@@ -6,17 +6,112 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./form.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="bs-example" >
     <h1>Registration Form </h1>
-    <h5>First Name:<span><input type="text"> </span></h5>
-    <h5>Last Name:<span><input type="text"> </span></h5>
-    <h5>Email Address:<span><input type="text"> </span></h5>
-    <h5>Phone Number:<span><input type="text"> </span></h5>
-    <h5>Date of Birth:<span><input type="text"> </span></h5>
-    <h5>Zip Code:<span><input type="text"> </span></h5>
-    <h5>Gender:<span><input type="text"> </span></h5>
+    <div>
+        <label class="col-xs-3" for="firstName">
+            First Name:
+        </label>
+            <div class="form-group case">
+                <input class="form-control " type="text" placeholder="First Name">
+            </div>
+    </div>
+    <div>
+        <label class="col-xs-3 " for="LastName">
+            Last Name:
+        </label>
+            <div class="form-group case">
+                <input class="form-control" type="text" placeholder="Last Name">
+            </div>
+    </div>
+    <div>
+        <label class="col-xs-3" for="EmailAddress">
+                Email Address:
+        </label>
+            <div class="form-group case">
+                <input class="form-control" type="text" placeholder="Email Address"> 
+            </div>
+    </div>
+    <div  class="clear" >
+        <label class="col-xs-3" for="PhoneNumber">
+            Phone Number:
+        </label>
+        <div class="form-group case">
+            <input class="form-control" type="text" placeholder="Phone Number"> 
+        </div>
+    </div>
+        <div>
+            <label class="col-xs-3 " for="DateofBirth">
+                Date of Birth:
+            </label>
+        </div>
+        <div>
+            <select class="form-control width1 inline">
+                <option>Date </option>
+            </select> 
+            <select class="form-control width1 inline">
+                <option>Month</option>
+            </select>
+            <select class="form-control width1 inline">
+                <option>Year</option>
+            </select>
+        </div>
+        </div>
+    <div >
+    
+        <label class="col-xs-3 pd-l-35" for="PostalAddress">
+            Postal Address:
+        </label>
+        <div class="inn pd-l-10">
+        <textarea  rows="3" class="form-control"  placeholder="Postal Address">
+        </textarea>
+        </div>
+    </div>
+    <div class="ma">
+            <label class="col-xs-3 pd-l-35" for="Zipcode">
+                    Zip Code:
+            </label> 
+           
+            <div class="form-group case pd-l-10">
+                <input class="form-control" type="text" placeholder="Zip Code"> 
+            </div>
+        </div>
+    <div>
+        <label class="col-xs-3" >
+            <div class=" form-group pd-l-20">Gender:
+
+            </div>
+        </label>
+    </div>
+        <div class="form-group col-xs-2">
+            <span class="pd-l-10 mg-r-30">
+            <input type="radio" name="sex" value="male"  checked>Male
+            <input type="radio" name="sex" value="female">Female
+            </span>
+        </div>
+        <div class="form-group pd-l-50">
+            <label class="col-xs-offset-3  pd-t-7 col-xs-9" id="kio">
+                <input type="checkbox">
+            Send me latest news and updates.
+            </label>
+        </div>
+        <div class="form-group pd-l-50">
+            <label class="col-xs-offset-3 pd-t-7 col-xs-9" id="kio">
+                <input type="checkbox">
+                I agree to the<a href="#">Terms and Conditions</a>
+            </div>
+            </label>
+        <div class="col-xs-offset-3 col-xs-9 form-group" >
+            <input type="submit" value="Submit" class="btn1 btn2">
+            <input type="reset" value="Reset" class="btn2">
+        </div>
+    </div>
+    </div>
+
 </body>
 </html>
