@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Helloworld</title>
+</head>
+<body>
+    <h1>v-Text&v-html</h1>
+    <div id="hls">
+        <span v-text="message"></span>
+        <!-- 网速慢时<span>{{message}} </span>显示的是message 而不是message的内容-->
+        <span v-html="something"></span>
+        <!-- 页面保证了安全才用v-html -->
+    </div>
+<script type="text/javascript">
+
+    var hls=new Vue({
+        el:"#hls",
+        data:{
+            message:"Hello,world!",
+            something:"<h2>hello,world!</h2>"
+        }
+    })
+</script>
+    
+</body>
+<script src="./assets/321.js" type="text/javascript"></script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>v-on</title>
+</head>
+<body>
+    <h1>v-on</h1>
+    <div id="hls">
+        本场得分：{{fenshu}}
+        <p>
+            <button v-on:click="addition">加分</button>
+            <button @click="subtract">减分</button><br/>
+            <input type="text" v-on:keyup.32="onEnter" v-model="fenshu2"/>
+            <!-- 这里的keyup.32是按下空格键执行onEnter这个方法 v-model 绑定数据源 -->
+        </p>
+    </div>
+<script type="text/javascript">
+
+    var hls=new Vue({
+        el:"#hls",
+        data:{
+                fenshu:0,
+                fenshu2:2
+        },
+        methods:{
+            addition:function(){
+             this.fenshu++;
+            },
+            subtract:function(){
+                this.fenshu--;
+            },
+            onEnter:function(){
+                this.fenshu=this.fenshu + parseInt(this.fenshu2);
+                                                    // parseInt 解析字符串
+            }
+        }
+    })
+</script>
+    
+</body>
+<script src="./assets/321.js" type="text/javascript"></script>
+</html>

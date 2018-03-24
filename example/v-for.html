@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>v-for</title>
+</head>
+<body>
+    <h1>v-for</h1>
+    <div id="hls">
+        <ul>
+            <li v-for="i in showIte">  <!--   需要哪个部分循环就放在哪标签里 -->
+                {{i}}
+            </li>
+            <hr>
+            <li v-for="(v,index) in showStu">
+                {{index+1}}.{{v.name}}:{{v.age}}
+            </li>
+        </ul>
+    </div>
+<script type="text/javascript">
+
+    var hls=new Vue({
+        el:"#hls",
+        data:{
+            items:[23,59,89,9,6,3],
+            students:[
+                {name:"ningshu",age:22},
+                {name:"Selina",age:12},
+                {name:"July",age:42},
+                {name:"Sarch",age:82},
+            ]
+        },
+        computed:{
+            showIte:function(){
+                return this.items.sort(t)
+            },
+            showStu:function(){
+                return sortByKey(this.students,"age");
+            }
+
+        },
+
+    })
+    function t(a,b){
+            return a-b;
+        }
+    function sortByKey(array,key){
+    return array.sort(function(a,b){
+      var x=a[key];
+      var y=b[key];
+      return ((x<y)?-1:((x>y)?1:0));
+   });
+}
+</script>
+    
+</body>
+<script src="./assets/321.js" type="text/javascript"></script>
+</html>
