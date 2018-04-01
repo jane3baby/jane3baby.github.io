@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>slot内置组件</title>
+</head>
+<body>
+    <h1>slot内置组件</h1>
+    <div id="hls">
+    <ningshu><!-- 传递值 -->
+        <span slot="bolgUrl">1</span>
+        <span slot="netName">2</span>
+        <span slot="skill">3</span>
+    </ningshu>
+    </div>
+    <template id="lemon">
+        <div><!--接收并显示 -->
+<p>博客地址：<slot name="bolgUrl"></slot></p>
+<p>网名：<slot name="netName"></slot></p>
+<p>技能：<slot name="skill"></slot></p></div>
+    </template>
+<script type="text/javascript">
+var jiaojiao={
+    template:'#lemon'
+}
+    var hls=new Vue({
+        el:"#hls",
+        data:{
+            ningshuData:{
+                bolgUrl:'www.baidu.com',
+                netName:'baidu',
+                skill:'web前端'
+            }
+        },
+        components:{
+            'ningshu':jiaojiao
+        }
+    })
+</script>
+    
+</body>
+
+</html>

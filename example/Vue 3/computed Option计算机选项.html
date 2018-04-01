@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>computed Option计算机选项</title>
+</head>
+<body>
+    <h1>computed Option计算机选项</h1>
+    <div id="hls">
+      <p> {{newPrice}}</p> 
+      <ul>
+          <li v-for="i in reverseNews">{{i.title}}-{{i.date}}</li>
+      </ul>
+    </div>
+<script type="text/javascript">
+    var newslist=[
+        {title:"万科楼盘广告：春风十里醉 不如树下学生妹",date:"2018/3/24"},
+        {title:"苹果发9.7寸新iPad：国内2588元起售",date:"2018/3/25"},
+        {title:"金正恩对中国科技发展表钦佩",date:"2018/3/26"},
+        {title:"吴小晖职务侵占保费资金共计100亿元",date:"2018/3/27"},
+        {title:"5月1日起 这部法规将改变你的生活",date:"2018/3/28"},
+    ]
+    var hls=new Vue({
+        el:"#hls",
+        data:{
+            
+            price:100,
+            newslist:newslist
+        },
+        computed:{
+            newPrice:function(){
+                return this.price="￥"+this.price+"元";
+            },
+            reverseNews:function(){
+                return this.newslist.reverse();
+            }
+        }
+    })
+</script>
+    
+</body>
+
+</html>

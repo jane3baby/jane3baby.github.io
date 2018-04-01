@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Component组件Props属性</title>
+</head>
+<body>
+    <h1>Component组件Props属性</h1>props属性建立在局部组件的基础上
+    <div id="lemon">
+        <ningshu :i-here="message"></ningshu> <!-- 这里的v-bind 向组件中传值 -->
+       
+    </div>
+    <script type="text/javascript">
+        //props选项就是设置和获取标签上的属性值的，
+        //例如我们有一个自定义的组件<panda></panda>
+        //,这时我们想给他加个标签属性写成<panda here='China'>
+        //</panda> 意思就是熊猫来自中国，
+        //当然这里的China可以换成任何值。定义属性的选项是props。
+
+    var lemon=new Vue({
+        el:"#lemon",
+        data:{
+            message:"shanghai"   
+        },
+        components:{
+            "ningshu":{
+                template:`<div style="color:skyblue">我是局部组件{{iHere}}</div>`,//插入文本中
+                props:['iHere']
+                // props注册装载
+            }
+        }
+    })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"   ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <title>Examples Method Demo</title>
+</head>
+<body>
+    <h1>Examples Method Demo</h1>
+    <div id="hls"></div>
+    <p><button onclick="destroy()">卸载</button></p> <!--在构造器外面写onclick-->
+    <p><button onclick="reload()">刷新</button></p> 
+    <p><button onclick="tick()">更改数据</button></p> 
+<script type="text/javascript">
+var ningshu=Vue.extend({
+    template:`<p>{{message}}</p>`,
+    data:function(){
+        return{
+            message:"hello,ningshu"
+        }
+    },
+    mounted:function(){
+        console.log('mounted 被创建');
+    },
+    destroyed:function(){
+        console.log('destroy 销毁以后');
+    },
+    updated:function(){
+        console.log('update 更新以后');
+    },
+})
+    var ns=new ningshu().$mount('#hls');
+    function destroy(){
+        ns.$destroy();
+    }
+    function reload(){
+        ns.$forceUpdate();
+    }
+
+    function tick(){
+        ns.message="update message info";
+        ns.$nextTick(function(){
+            console.log('message 更新完后我被调用了')
+        }
+
+        )
+    }
+
+</script>
+    
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>component父子组件关系</title>
+</head>
+<body>
+    <h1>component父子组件关系</h1>
+    <div id="sunny">
+        <ningshu></ningshu>
+        <jiaojiao></jiaojiao>
+    </div>
+    <script type="text/javascript">
+    //构造器外部写局部注册组件
+    var jiao={
+        template:`<div style="color:gray">wuhan of China</div>`
+    }
+    var ningshuComponent={
+        template:`<div style="color:pink">
+        <p>
+        Ningshu form wuhan!
+        </p>
+        <jiaojiao></jiaojiao>
+        </div>`,
+        components:{
+            'jiaojiao':jiao
+        }
+    }
+        var sunny=new Vue({
+            el:"#sunny",
+            components:{
+                "ningshu":ningshuComponent
+            },
+            
+        })
+    </script>
+    
+</body>
+</html>

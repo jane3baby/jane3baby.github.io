@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Component标签</title>
+</head>
+
+<body> 动态
+    <h1>Component标签</h1>
+    <div id="hls">
+        <component :is="who"></component>
+        <button @cilck="change">changeComponent</button>
+    </div>
+    <script type="text/javascript">
+        var componentA = {
+            template: `<div>A</div>`
+        }
+        var componentB = {
+            template: `<div>B</div>`
+        }
+        var componentC = {
+            template: `<div>C</div>`
+        }
+        var hls = new Vue({
+            el: "#hls",
+            data: {
+                who: "componentB"
+            },
+            components: {
+                'componentA': componentA,
+                'componentB': componentB,
+                'componentC': componentC,
+            },
+            methods: {
+                change: function () {
+                    if (this.who == "componentA") {
+                        this.who = "componentB";
+                    } else if (this.who == "componentB") {
+                        this.who = "componentC";
+                    } else {
+                        this.who = "componentA";
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

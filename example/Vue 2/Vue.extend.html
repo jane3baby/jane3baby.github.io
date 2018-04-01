@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Vue extend</title>
+</head>
+
+<body>
+    <h1>Vue extend</h1>
+    <hr>
+   
+    <author> </author>
+    <script type="text/javascript">
+        var authorExtend = Vue.extend({
+            // 全局api 都是大写v 是在构造器外面 写法类似于构造器
+            //   里面加  模板
+            // ：href 绑定地址 v-bind
+            template: "<p><a :href='authorURL'>{{authorName}}</a></p>",
+            data: function () {
+                    return {
+                    authorName: "ningshu",
+                    authorURL: "http://www.jspang.com"
+                }
+            }
+        });
+    
+        new authorExtend().$mount('author');
+    // 方法绑定属性
+
+    </script>
+
+</body>
+
+</html>

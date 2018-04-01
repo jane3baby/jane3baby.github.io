@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Mixins</title>
+</head>
+
+<body>
+    <!-- Mixins一般有两种用途：
+
+        1、在你已经写好了构造器后，需要增加方法或者临时的活动时使用的方法，这时用混入会减少源代码的污染。
+        
+        2、很多地方都会用到的公用方法，用混入的方法可以减少代码量，实现代码重用。 -->
+    <h1>Mixins</h1>
+    <div id="hls">
+        {{message}}
+        <p>
+            <button @click="add">按钮</button>
+        </p>
+    </div>
+    <script type="text/javascript">
+        var ning = {
+            updated: function () {
+                console.log('数据发生变化，变成' + this.message)
+            }
+        };
+        Vue.mixin({
+            updated: function () {
+                console.log('我是全局的混入')
+            }
+        })
+        var hls = new Vue({
+            el: "#hls",
+            data: {
+                message: 1
+            },
+            methods: {
+                add: function () {
+                    this.message++;
+                }
+            },
+            updated: function () {
+                console.log("构造器里的updated方法。我是原生的update")
+            },
+            mixins: [ning]
+        })
+    </script>
+
+</body>
+
+</html>

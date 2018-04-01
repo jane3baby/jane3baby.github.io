@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Vue set全局操作</title>
+</head>
+<body>
+    <h1>Vue set全局操作</h1>
+    <div id="hls">
+        {{count}}
+        <ul>
+            <li v-for="i in arr">{{i}}</li>
+        </ul>
+        Vue.set 的作用就是在构造器外部操作构造器内部的数据
+        、属性或者方法。比如在vue构造器内部定义了一个count为1的数据，
+        我们在构造器外部定义了一个方法，要每次点击按钮给值加1.
+        就需要用到Vue.set。
+    </div>
+    <p><button onclick="fangfa()">add</button></p>
+<script type="text/javascript">
+    function fangfa(){
+      
+        // Vue.set(outData,'count',5);
+        // hls.count++;
+        // outData.count++;
+        // hls.arr[0]="ww";
+        Vue.set(hls.arr,0,'ww');
+}
+    var outData={
+        count:1,
+       
+        arr:['a',5,'p']
+    }  //什么是外部数据，就是不在Vue构造器里里的data处声明，
+        // 而是在构造器外部声明，然后在data处引用就可以了。外部数
+        // 据的加入让程序更加灵活，我们可以在外部获取任何想要的数据
+        // 形式，然后让data引用。
+    var hls=new Vue({
+        el:"#hls",
+        data:outData
+    })
+</script>
+    
+</body>
+
+</html>

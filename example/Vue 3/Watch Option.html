@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Helloworld</title>
+</head>
+<body>
+    <h1>Today</h1>
+    <div id="hls">
+        <p>今日温度:{{wendu}}°</p>
+        <p>穿衣建议:{{chuanyi}}°</p>
+        <p><button @click="add">升温</button>
+            <button @click="subtract">降温</button>
+        </p>
+    </div>
+<script type="text/javascript">
+var chuanyiarry=['T恤短袖','夹克长裙','羽绒服']
+    var hls=new Vue({
+        el:"#hls",
+        data:{
+            wendu:14,
+            chuanyi:'夹克长裙'
+        },
+        methods:{
+            add:function(){
+                this.wendu+=5;
+            },
+            subtract:function(){
+                this.wendu-=5;
+            }
+        },
+        watch:{
+            wendu:function(newVal,oldVal){
+                if(newVal>=26){
+                    this.chuanyi=chuanyiarry[0];
+                }else if(newVal<26 && newVal>0){
+                    this.chuanyi=chuanyiarry[1];
+                }else{
+                    this.chuanyi=chuanyiarry[2];
+                }
+            }
+        }
+    })//有些时候我们会用实例属性的形式来写watch监控。也就是把我们watch卸载构造器的外部
+    //，这样的好处就是降低我们程序的耦合度，使程序变的灵活。
+
+
+hls.$watch('xxx',function(){})
+
+    hls.$watch('temperature',function(newVal,oldVal){
+    if(newVal>=26){
+        this.suggestion=suggestion[0];
+    }else if(newVal<26 && newVal >=0)
+    {
+        this.suggestion=suggestion[1];
+    }else{
+        this.suggestion=suggestion[2];
+    }
+ 
+})
+</script>
+    
+</body>
+
+</html>

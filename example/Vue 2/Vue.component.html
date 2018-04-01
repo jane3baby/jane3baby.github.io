@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>component</title>
+</head>
+
+<body>
+    <h1>全局注册组件component</h1>
+    <!-- <div id="lemon">
+        <ningshu>nihao</ningshu>
+    </div>
+    <script type="text/javascript">
+        Vue.component('ningshu', {
+            template:`<div style="color:pink;">全局化注册的ningshu标签</div>`
+            })
+        var lemon=new Vue({
+            el:"#lemon"
+         }) 
+    </script> -->
+    <hr>
+    <h1>局部注册组件 定义的是标签</h1>
+    <div id="ns">
+        <jiaojiao></jiaojiao>
+    </div>
+    <script type="text/javascript">
+        var ns=new Vue({
+        el:"#ns",
+        // 从代码中你可以看出局部注册其实就是写在构造器里，但
+        //是你需要注意的是，构造器里的components 是加s的，
+        //而全局注册是不加s的。
+        components:{
+            "jiaojiao":{
+                template:`<div style="color:skyblue">time is up!</div>`
+            }
+        }
+    })
+    
+    
+    </script>
+
+
+</body>
+
+</html>

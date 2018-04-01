@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>v-bind绑定属性</title>
+</head>
+<style>
+    .classA{
+        color: rgb(238, 9, 47);
+    }
+    .classB{
+        font-size: 150%;
+    }
+</style>
+<body>
+    <h1>v-bind</h1>
+    <div id="hls">
+    <p><img v-bind:src="imgSrc" width="200px" />
+        <a :href="web_Url" target="_blank">click Me</a>
+    </p> 
+    <hr>
+    <div :class="className">1、绑定class</div>
+    <div :class="{classA:h}">2、绑定class中的判断</div>
+    <div :class="[A,B]">3、绑定class数组</div>
+    <div :class="h?A:B">4、三元运算符</div>
+    <div :style="{color:r,fontSize:f}">5、绑定style属性</div><!--这是一种方法 -->
+    <!-- 还有一种是绑定到object -->
+    <div :style="ob">方法二</div>
+    <hr>
+    <div>
+        <input type="checkbox"  v-model="h">
+        <label>zhenjia={{h}}</label>
+    </div>
+    </div>
+<script type="text/javascript">
+
+    var hls=new Vue({
+        el:"#hls",
+        data:{
+            imgSrc:"./2.jpg",
+            web_Url:"#",
+            className:"classA",
+            h:true,
+            A:"classA",
+            B:"classB",
+            r:"skyblue",
+            f:"20px",
+            ob:{
+                color:"pink",
+                fontSize:"20px"
+            }
+        } 
+    })
+</script>
+    
+</body>
+<!-- <script src="./assets/321.js" type="text/javascript"></script> -->
+</html>

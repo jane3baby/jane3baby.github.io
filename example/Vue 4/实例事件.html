@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>实例事件</title>
+</head>
+<body>
+    <h1>实例事件</h1>
+    <div id="hls">
+        {{a}}
+        <p><button @click="add">按钮</button></p>
+    </div>
+    <p><button onclick="reduce()">reduce</button></p>
+    <!-- 外部调用方法要加‘（）’ -->
+    <p><button onclick="onceReduce()">只减一次</button></p>
+    <p><button onclick="off()">关闭</button></p>
+<script type="text/javascript">
+
+    var hls=new Vue({
+        el:"#hls",
+        data:{
+            a:1
+        },
+        methods:{
+            add:function(){
+                this.a++;
+            }
+        }
+    });
+    hls.$once('onceReduce',function(){
+        this.a--;
+    },
+    hls.$off('off',function(){
+        $destroy(this.a);
+    })
+    )
+   hls.$on('reduce',function(){
+       console.log('执行了reduce方法')
+       this.a--;
+   })
+   function reduce(){
+       hls.$emit('reduce');
+   }
+   function onceReduce(){
+    console.log('只执行一次的方法');
+       hls.$emit('onceReduce')
+   }
+   function off(){
+    console.log('关闭');
+   hls.$off('reduce');
+}
+</script>
+    
+</body>
+
+</html>

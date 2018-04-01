@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Methods Option</title>
+</head>
+<body>
+    <h1>Methods Option</h1>
+    <div id="hls">
+        {{a}}
+        <p><button @click="dianji(2)">加分</button></p>
+        <p><btn @click.native="dianji(2)"></btn></p><!-- zujian<btn> -->
+    </div>
+<script type="text/javascript">
+var btn={
+    template:`<button>hello,world</button>`
+}
+    var hls=new Vue({
+        el:"#hls",
+        data:{
+            a:1
+        },
+        components:{
+            'btn':btn
+        },
+        methods:{
+            dianji:function(num){
+                if(num!=""){
+                    this.a+=num
+                    
+                }else{
+                this.a++;
+                }
+                
+            }
+
+        }
+    })
+</script>
+    
+</body>
+
+</html>

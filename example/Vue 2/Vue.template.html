@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Helloworld</title>
+</head>
+
+<body>
+    <h1>Today</h1>
+    <div id="hls">
+        {{message}}
+    </div>
+    <template id="danshen">
+        <h2 style="color:pink">我是标签模板</h2>
+    </template>
+    <script type="x-template" id="dd3">
+    <h2 style="color:pink">我是script标签模板</h2>
+    </script>
+
+
+
+    <script type="text/javascript">
+
+        var hls = new Vue({
+            el: "#hls",
+            data: {
+                message: "Hello,world!",
+
+            },
+            template: "#dd3"
+            // template:`
+            // <h2 style="color:pink">我是选项模板</h2>
+            // `  适合小模版/组件
+        })
+    </script>
+
+</body>
+
+</html>
